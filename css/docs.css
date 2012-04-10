@@ -12,17 +12,16 @@ footer {
 
 code.nocode {
   display: inline-block;
-  background-color: #e6f0ff;
-  border: 1px solid #99c2ff;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  color: #223f7a;
+  font-weight: bold;
+  color: #D14;
+  background-color: #FADEE5;
+  padding: 0 3px;
+  border: 0;
+}
 
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  border: 1px solid #e1e1e8;
+/* code highlight - strings */
+.atv {
+  color: #707070 !important;
 }
 
 .example {
