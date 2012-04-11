@@ -1,34 +1,49 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"> <!--<![endif]-->
-<head>
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://angularjs-org.appspot.com/#/list -->
+<html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./index_files/bootstrap.min.js"></script><script async="" src="./index_files/angular-locale_en-us.js"></script><script async="" src="./index_files/angular-locale_sk.js"></script><script async="" src="./index_files/angular-1.0.0rc4.min.js"></script><script async="" src="./index_files/homepage.js"></script><script async="" src="./index_files/prettify.min.js"></script><script async="" src="./index_files/jquery.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="Description"
-        content="AngularJS is what HTML would have been, had it been designed for building web-apps.
+  <meta name="Description" content="AngularJS is what HTML would have been, had it been designed for building web-apps.
                  Declarative templates with data-binding, MVC, dependency injection and great
                  testability story all implemented with pure client-side JavaScript!">
-  <title ng-bind="'NGULARJS — Superheroic JavaScript MVC Framework'">AngularJS — Superheroic JavaScript MVC Framework</title>
-  <script>
-    /*!
-      * $script.js Async loader & dependency manager
-      * https://github.com/ded/script.js
-      * (c) Dustin Diaz, Jacob Thornton 2011
-      * License: MIT
-      */
+  <title ng-bind="&#39;NGULARJS — Superheroic JavaScript MVC Framework&#39;" class="ng-binding">NGULARJS — Superheroic JavaScript MVC Framework</title>
+  <script src="./index_files/ga.js"></script><script id="twitter-wjs" src="./index_files/widgets.js"></script><script>
+
+
     (function(a,b){typeof module!="undefined"?module.exports=b():typeof define=="function"&&define.amd?define(a,b):this[a]=b()})("$script",function(){function q(a,b,c){for(c=0,j=a.length;c<j;++c)if(!b(a[c]))return k;return 1}function r(a,b){q(a,function(a){return!b(a)})}function s(a,b,i){function o(a){return a.call?a():d[a]}function p(){if(!--n){d[m]=1,k&&k();for(var a in f)q(a.split("|"),o)&&!r(f[a],o)&&(f[a]=[])}}a=a[l]?a:[a];var j=b&&b.call,k=j?b:i,m=j?a.join(""):b,n=a.length;return setTimeout(function(){r(a,function(a){if(h[a])return m&&(e[m]=1),h[a]==2&&p();h[a]=1,m&&(e[m]=1),t(!c.test(a)&&g?g+a+".js":a,p)})},0),s}function t(c,d){var e=a.createElement("script"),f=k;e.onload=e.onerror=e[p]=function(){if(e[n]&&!/^c|loade/.test(e[n])||f)return;e.onload=e[p]=null,f=1,h[c]=2,d()},e.async=1,e.src=c,b.insertBefore(e,b.firstChild)}var a=document,b=a.getElementsByTagName("head")[0],c=/^https?:\/\//,d={},e={},f={},g,h={},i="string",k=!1,l="push",m="DOMContentLoaded",n="readyState",o="addEventListener",p="onreadystatechange";return!a[n]&&a[o]&&(a[o](m,function u(){a.removeEventListener(m,u,k),a[n]="complete"},k),a[n]="loading"),s.get=t,s.order=function(a,b,c){(function d(e){e=a.shift(),a.length?s(e,d):s(e,b,c)})()},s.path=function(a){g=a},s.ready=function(a,b,c){a=a[l]?a:[a];var e=[];return!r(a,function(a){d[a]||e[l](a)})&&q(a,function(a){return d[a]})?b():!function(a){f[a]=f[a]||[],f[a][l](b),c&&c(e)}(a.join("|")),s},s})
 
     $script('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', function() {
-      $script('js/bootstrap.min.js', function() {
+      $script('/lib/bootstrap/bootstrap.min.js', function() {
         $().dropdown();
         bootstrap();
-      });
+
+				var $win = $(window)
+					, $examples = $('.examples')
+					, $nav = $('.navbar')
+					, navTop = $('.navbar').length && $('.navbar').offset().top
+					, isFixed = 0
+
+				processScroll()
+
+				$win.on('scroll', processScroll)
+
+				function processScroll() {
+					var i, scrollTop = $win.scrollTop()
+					if (scrollTop >= navTop && !isFixed) {
+						isFixed = 1
+						$nav.addClass('navbar-fixed-top')
+						$examples.css("padding-top", 55)
+					} else if (scrollTop <= navTop && isFixed) {
+						isFixed = 0
+						$nav.removeClass('navbar-fixed-top')
+						$examples.css("padding-top", 0)
+					}
+				}
+				});
     });
 
-    $script('google-code-prettify/prettify.min.js', bootstrap);
-    $script('js/homepage.js', bootstrap);
+    $script('/lib/google-code-prettify/prettify.min.js', bootstrap);
+    $script('/js/homepage.js', bootstrap);
     $script('http://code.angularjs.org/angular-1.0.0rc4.min.js', bootstrap);
     $script('http://code.angularjs.org/1.0.0rc4/i18n-1.0.0rc4/angular-locale_sk.js', function() {
       angular.module('ngLocal.sk', [])._invokeQueue.push(angular.module('ngLocale')._invokeQueue[0]);
@@ -54,11 +69,8 @@
     }
   </script>
   <script>
-    /*
-     AngularJS v1.0.0rc4
-     (c) 2010-2012 AngularJS http://angularjs.org
-     License: MIT
-     */
+
+
     (function(i){'use strict';function d(c,b,e){return c[b]||(c[b]=e())}return d(d(i,"angular",Object),"module",function(){var c={};return function(b,e,f){e&&c.hasOwnProperty(b)&&(c[b]=null);return d(c,b,function(){function a(a,b,d){return function(){c[d||"push"]([a,b,arguments]);return g}}if(!e)throw Error("No module: "+b);var c=[],d=[],h=a("$injector","invoke"),g={_invokeQueue:c,_runBlocks:d,requires:e,name:b,provider:a("$provide","provider"),factory:a("$provide","factory"),service:a("$provide","service"),
       value:a("$provide","value"),constant:a("$provide","constant","unshift"),filter:a("$filterProvider","register"),controller:a("$controllerProvider","register"),directive:a("$compileProvider","directive"),config:h,run:function(a){d.push(a);return this}};f&&h(f);return g})}})})(window);
   </script>
@@ -73,27 +85,86 @@
       g.src=('https:'==location.protocol?'//ssl':'http://www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-  
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/docs.css">
-  <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <link rel="icon" href="http://angularjs-org.appspot.com/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://angularjs-org.appspot.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="index_files/application.css">
+	<link href="./index_files/css" rel="stylesheet" type="text/css" css="">
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style></head>
+<body data-twttr-rendered="true">
+
+<div class="white-bg">
+ <div role="main" class="container pitch">
+    <div class="row">
+      <div class="span12">
+        <div class="hero-unit">
+          <div class="header">
+            <div class="center">
+
+
+							<img class="AngularJS-large" src="./index_files/AngularJS-large.png" style="padding-right: 70px;">
+            </div>
+ 					<div class="center">
+						<h2>HTML Evolved!</h2>
+					</div>
+            <div class="center">
+              <ul class="unstyled inline">
+
+
+
+
+								<li><h4 class="bullet-points"><i class="icon-asterisk"></i>Better.</h4></li>
+								<li><h4 class="bullet-points"><i class="icon-asterisk"></i>Shorter.</h4></li>
+								<li><h4 class="bullet-points"><i class="icon-asterisk"></i>Faster.</h4></li>
+              </ul>
+            </div>
+          </div>
+         <div class="center">
+						<a class="btn btn-large btn-primary" href="https://github.com/angular/angular.js">
+							<i class="icon-github-sign"></i>
+							View project on GitHub
+						</a>
+            <a class="btn btn-large" href="http://code.angularjs.org/1.0.0rc4/">
+							<i class="icon-download"></i>
+              Download AngularJS<span class="version"> (<span ng-bind="version.full" class="ng-binding">1.0.0rc4</span>)</span>
+            </a>
+          </div>
+          <ul class="quick-links">
+            <li><a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#v1.0.0rc4">Changelog</a></li>
+            <li><a href="https://github.com/angular/angular.js/issues">Submit issue</a></li>
+            <li><a href="http://groups.google.com/group/angular">Ask a question</a></li>
+          </ul>
+          <ul class="quick-links">
+            <li>
+              <iframe src="./index_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+            </li>
+            <li>
+              <iframe src="./index_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+            </li>
+            <li>
+              <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./index_files/follow_button.1333526973.html" class="twitter-follow-button" style="width: 220px; height: 20px; " title="Twitter Follow Button"></iframe>
+            </li>
+            <li>
+              <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./index_files/tweet_button.1333526973.html" class="twitter-share-button twitter-count-horizontal" style="width: 107px; height: 20px; " title="Twitter Tweet Button"></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
   <header class="header">
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="http://angularjs.org" style="padding-top: 6px; padding-bottom: 0px;">
-            <img class="AngularJS-small" src="img/AngularJS-small.png">
+          <a class="brand angularjs-logo" href="http://angularjs.org/" style="padding-top: 6px; padding-bottom: 0px;">
+
+
+						<img class="AngularJS-small" src="http://angular.github.com/angularjs.org/img/AngularJS-small.png">
           </a>
           <ul class="nav">
             <li class="divider-vertical"></li>
-            <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+            <li class="active"><a href="http://angularjs-org.appspot.com/#"><i class="icon-home icon-white"></i> Home</a></li>
             <li class="divider-vertical"></li>
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -109,7 +180,7 @@
             </li>
             <li class="divider-vertical"></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="http://angularjs-org.appspot.com/#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="icon-book icon-white"></i> Develop <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
@@ -138,7 +209,7 @@
             </li>
             <li class="divider-vertical"></li>
           </ul>
-          <form class="navbar-search pull-right" method="GET" action="https://www.google.com/search">
+          <form class="navbar-search pull-right ng-pristine ng-valid" method="GET" action="https://www.google.com/search">
             <input type="text" name="as_q" class="search-query" placeholder="Search">
             <input type="hidden" name="as_sitesearch" value="angularjs.org">
           </form>
@@ -146,72 +217,42 @@
       </div>
     </div>
   </header>
-  <div role="main" class="container">
 
-    <div class="row" style="padding-top: 80px;">
-      <div class="span12">
-        <div class="hero-unit">
-          <div>
-            <div class="pull-left">
-              <img class="AngularJS-large" src="img/AngularJS-large.png" style="padding-right: 70px;">
-            </div>
-            <div>
-              <ul class="unstyled" style="padding-top: 21px">
-                <li>Stop writing boilerplate</li>
-                <li>Free yourself from DOM complexities.</li>
-                <li>Write <sup>1</sup>/<sub>10</sub>th the code.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="center">
-            <h1>HTML Enhanced for Web Apps!</h1>
-          </div>
-          <div class="center">
-            <a class="btn btn-large btn-primary" href="https://github.com/angular/angular.js">View project on GitHub</a>
-            <a class="btn btn-large" href="http://code.angularjs.org/1.0.0rc4/">
-              Download AngularJS<span class="version"> (<span ng-bind="version.full">1.0.0rc4</span>)</span>
-            </a>
-          </div>
-          <ul class='quick-links'>
-            <li><a href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#v1.0.0rc4">Changelog</a></li>
-            <li><a href="https://github.com/angular/angular.js/issues">Submit issue</a></li>
-            <li><a href="http://groups.google.com/group/angular">Ask a question</a></li>
-          </ul>
-          <ul class='quick-links'>
-            <li>
-              <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=angular&repo=angular.js&type=watch&count=true"
-                      allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-            </li>
-            <li>
-              <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=angular&repo=angular.js&type=fork&count=true"
-                      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-            </li>
-            <li>
-              <a href="https://twitter.com/angularjs" class="twitter-follow-button" data-show-count="true">Follow @angularjs</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/share" class="twitter-share-button"
-                 data-url="http://angularjs.org" data-text="AngularJS - HTML Enhanced for Web Apps" data-via="angularjs">Tweet</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
+ <div role="main" class="container examples" style="padding-top: 0px; ">
+    <h1>Basics</h1>
 
     <div class="row example">
-      <div class="span8 app-source" app-source="hello.html hello.js" annotate="hello.annotation"></div>
+      <div class="span8 app-source" app-source="hello.html hello.js" annotate="hello.annotation" style="clear: both; "><div class="tabbable"><ul class="nav nav-tabs"><li class=" active"><a href="http://angularjs-org.appspot.com/#hello-html" data-toggle="tab">index.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#hello-js" data-toggle="tab">hello.js</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hello-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-app&lt;/code&gt;" data-content="Tells AngularJS to be active in this portion of the page. In this case the entire document.">ng-app</code></span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/angular-1.0.0rc4.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"<code class="nocode" rel="popover" title="&lt;code&gt;hello.js&lt;/code&gt;" data-content="Your behavior lives in JavaScript controllers.">hello.js</code>"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-controller&lt;/code&gt;" data-content="The behavior of content under this element will be managed using the &lt;code&gt;HelloCtrl&lt;/code&gt; class defined in &lt;code&gt;hello.js&lt;/code&gt;.">ng-controller</code></span><span class="pun">=</span><span class="atv">"HelloCtrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;label&gt;</span><span class="pln">Name:</span><span class="tag">&lt;/label&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-model&lt;/code&gt;" data-content="This links the form and the model. This means that any changes to the control update the data in your model, and when you change the model it updates the control. Try it! Type in the control and see it update below.">ng-model</code></span><span class="pun">=</span><span class="atv">"yourName"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;hr&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;h1&gt;</span><span class="pln">Hello <code class="nocode" rel="popover" title="&lt;code&gt;{{yourName}}&lt;/code&gt;" data-content="The &lt;code&gt;{{ }}&lt;/code&gt; are a declarative way of specifying data binding locations in the HTML. AngularJS will automatically update this text whenever the &lt;code&gt;yourName&lt;/code&gt; property changes.">{{yourName}}</code>!</span><span class="tag">&lt;/h1&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L4"><span class="tag">&lt;/html&gt;</span></li></ol></pre></div><div class="tab-pane" id="hello-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> </span><span class="typ"><code class="nocode" rel="popover" title="&lt;code&gt;HelloCtrl&lt;/code&gt;" data-content="The controller is the code behind the view. You can clearly see your application behavior because there is no DOM manipulation or framework specific boilerplate. Just simple, readable JavaScript.">HelloCtrl</code></span><span class="pun">(</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;$scope&lt;/code&gt;" data-content="&lt;code&gt;$scope&lt;/code&gt; contains your model data. It is the glue between the controller and the view.">$scope</code></span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;yourName&lt;/code&gt;" data-content="In controllers you update the model, and the view automatically reflects these changes. Notice there is no special API for model update, just a property assignment.">yourName</code> </span><span class="pun">=</span><span class="pln"> </span><span class="str">'World'</span><span class="pun">;</span></li><li class="L2"><span class="pun">}</span></li></ol></pre></div></div></div></div>
       <div class="span4">
-        <span hint></span>
-        <span class="pull-right" js-fiddle="hello.html hello.js"></span>
+        <span hint=""><em>Hint:</em> hover over <code class="nocode" rel="popover" data-content="Place your mouse over highlited areas in the code for explanations." data-original-title="Hover">me</code>.</span>
+        <span class="pull-right" js-fiddle="hello.html hello.js"><form class="jsfiddle" method="post" action="http://jsfiddle.net/api/post/library/pure/" target="_blank"><input type="hidden" name="title" value="AngularJS Example: "><input type="hidden" name="css" value="&lt;/style&gt; &lt;!-- Ugly Hack due to jsFiddle issue: http://goo.gl/BUfGZ --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://twitter.github.com/bootstrap/assets/css/bootstrap.css&quot;&gt;
+&lt;script src=&quot;http://code.angularjs.org/angular-1.0.0rc4.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+"><input type="hidden" name="html" value="&lt;div ng-app&gt;
+  &lt;div ng-controller=&quot;HelloCtrl&quot;&gt;
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot;&gt;
+    &lt;hr&gt;
+    &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"><input type="hidden" name="js" value="function HelloCtrl($scope) {
+  $scope.yourName = &#39;World&#39;;
+}
+
+"><button class="btn btn-primary"><i class="icon-white icon-pencil"></i> Edit Me</button></form></span>
         <br> <br> <br>
-        <div app-run="hello.html" class="well"></div>
+        <div app-run="hello.html" class="well ng-scope"><div ng-controller="HelloCtrl" class="ng-scope">
+  <label>Name:</label>
+  <input type="text" ng-model="yourName" class="ng-pristine ng-valid">
+  <hr>
+  <h1 class="ng-binding">Hello World!</h1>
+</div>
+</div>
       </div>
     </div>
 
-
-
-    <h1>Basics</h1>
     <div class="row">
       <div class="span4">
         <h3>Data Binding</h3>
@@ -238,33 +279,105 @@
         </p>
       </div>
     </div>
+
+		<h1>Intermediate</h1>
     <div class=" row example">
-      <div class="span8 app-source" app-source="todo.html todo.js todo.css" annotate="todo.annotation"></div>
+			<div class="span8 app-source" app-source="todo.html todo.js todo.css" annotate="todo.annotation" style="clear: both; "><div class="tabbable"><ul class="nav nav-tabs"><li class=" active"><a href="http://angularjs-org.appspot.com/#todo-html" data-toggle="tab">index.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#todo-js" data-toggle="tab">todo.js</a></li><li class=""><a href="http://angularjs-org.appspot.com/#todo-css" data-toggle="tab">todo.css</a></li></ul><div class="tab-content"><div class="tab-pane active" id="todo-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-app&lt;/code&gt;" data-content="Tells AngularJS to be active in this portion of the page. In this case the entire document.">ng-app</code></span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/angular-1.0.0rc4.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"<code class="nocode" rel="popover" title="&lt;code&gt;todo.js&lt;/code&gt;" data-content="Your behavior lives in JavaScript controllers.">todo.js</code>"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"todo.css"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;h2&gt;</span><span class="pln">Todo</span><span class="tag">&lt;/h2&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"TodoCtrl"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;span&gt;</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;{{remaining()}}&lt;/code&gt;" data-content="The &lt;code&gt;{{ }}&lt;/code&gt; are a declarative way of specifying data binding locations in the HTML. AngularJS will automatically update this text whenever the &lt;code&gt;remaining()&lt;/code&gt; function return value changes.">{{remaining()}}</code> of {{todos.length}} remaining</span><span class="tag">&lt;/span&gt;</span></li><li class="L1"><span class="pln">      [ </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-click&lt;/code&gt;" data-content="Instead of registering event-handlers, you declare which method on the controller to call. Here clicking the link will call &lt;code&gt;archive()&lt;/code&gt; method.">ng-click</code></span><span class="pun">=</span><span class="atv">"archive()"</span><span class="tag">&gt;</span><span class="pln">archive</span><span class="tag">&lt;/a&gt;</span><span class="pln"> ]</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"unstyled"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-repeat&lt;/code&gt;" data-content="Use &lt;code&gt;ng-repeat&lt;/code&gt; to unroll a collection. Here, for every object in &lt;code&gt;todos&lt;/code&gt;, AngularJS will create new copy of the &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; element. When objects are added to the &lt;code&gt;todos&lt;/code&gt; collection the &lt;code&gt;ng-repeat&lt;/code&gt; automatically adds new &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; elements into the DOM. Similarly when the objects are removed from &lt;code&gt;todos&lt;/code&gt; then the corresponding &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; element is removed as well. This is one of the most versatile directives in AngularJS.">ng-repeat</code></span><span class="pun">=</span><span class="atv">"todo in todos"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">          </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-model&lt;/code&gt;" data-content="This links the form and the model. This means that any changes to the control update the data in your model, and when you change the model it updates the control. AngularJS automatically copies the state of the checkbox into &lt;code&gt;todo.done&lt;/code&gt;. Conversely, if you update &lt;code&gt;todo.done&lt;/code&gt; you will see the checkbox respond accordingly.">ng-model</code></span><span class="pun">=</span><span class="atv">"todo.done"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">          </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"done-<code class="nocode" rel="popover" title="&lt;code&gt;{{todo.done}}&lt;/code&gt;" data-content="To show strikethroughs for completed tasks we have created a CSS class &lt;code&gt;done-true&lt;/code&gt;. When the &lt;code&gt;todo.done&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt; the resulting CSS selector is &lt;code&gt;done-true&lt;/code&gt; which then applies the strikethrough.">{{todo.done}}</code>"</span><span class="tag">&gt;</span><span class="pln">{{todo.text}}</span><span class="tag">&lt;/span&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;/li&gt;</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;/ul&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-submit&lt;/code&gt;" data-content="Intercepts form submission and instead calls &lt;code&gt;addTodo()&lt;/code&gt;. Inside this method we read the &lt;code&gt;todoText&lt;/code&gt; property and insert it into the &lt;code&gt;todos&lt;/code&gt; collection.">ng-submit</code></span><span class="pun">=</span><span class="atv">"addTodo()"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"todoText"</span><span class="pln">  </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"30"</span></li><li class="L0"><span class="pln">               </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"add new todo here"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn-primary"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"submit"</span><span class="pln"> </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"add"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;/form&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L5"><span class="tag">&lt;/html&gt;</span></li></ol></pre></div><div class="tab-pane" id="todo-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> </span><span class="typ"><code class="nocode" rel="popover" title="&lt;code&gt;TodoCtrl&lt;/code&gt;" data-content="The controller is the code behind the view. You can clearly see your application behavior because there is no DOM manipulation or framework specific boilerplate. Just simple, readable JavaScript.">TodoCtrl</code></span><span class="pun">(</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;$scope&lt;/code&gt;" data-content="&lt;code&gt;$scope&lt;/code&gt; contains your model data. It is the glue between the controller and the view. The &lt;code&gt;$scope&lt;/code&gt; is just one of the services that can be injected into the controller.">$scope</code></span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;todos&lt;/code&gt;" data-content="We are creating the model with two initial todo items. Notice that a you simply assign your model to the &lt;code&gt;$scope&lt;/code&gt; and AngularJS reflects the state in the UI automatically. The model data is a Plain-Old-JavaScript-Object no need to wrap it in proxy or accesses the property through special setter methods.">todos</code> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li><li class="L2"><span class="pln">    </span><span class="pun">{</span><span class="pln">text</span><span class="pun">:</span><span class="str">'learn angular'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">},</span></li><li class="L3"><span class="pln">    </span><span class="pun">{</span><span class="pln">text</span><span class="pun">:</span><span class="str">'build an angular app'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">}];</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;addTodo&lt;/code&gt;" data-content="We are assigning the behavior into the &lt;code&gt;$scope&lt;/code&gt; so that the &lt;code&gt;ng-click&lt;/code&gt; can invoke it.">addTodo</code> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">todos</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;push&lt;/code&gt;" data-content="This is unmodified &lt;code&gt;Array.push&lt;/code&gt; method. Calling it updates the model, which then updates the view through data-binding. The &lt;code&gt;ng&amp;ndash;repeat&lt;/code&gt; is bound to this array. It automatically unrolls the array and adds the new DOM element into the view. (see &lt;code&gt;ng&amp;ndash;repeat&lt;/code&gt; in &lt;code&gt;index.html&lt;/code&gt; tab.)">push</code></span><span class="pun">({</span><span class="pln">text</span><span class="pun">:</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;todoText&lt;/code&gt;" data-content="Because of  bi-directional data-binding, the model is always up to date. This means that we can simply read the state of the user input. No need for registering callbacks, event listeners or using framework dependent API.">todoText</code></span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">});</span></li><li class="L7"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">todoText </span><span class="pun">=</span><span class="pln"> </span><span class="str"><code class="nocode" rel="popover" title="&lt;code&gt;&#39;&#39;&lt;/code&gt;" data-content="Writing to the form controls is just as easy. The data-binding will clear the control for us.">''</code></span><span class="pun">;</span></li><li class="L8"><span class="pln">  </span><span class="pun">};</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;remaining&lt;/code&gt;" data-content="This is a computed property. No need to define its dependencies or worry about when it needs to be updated.">remaining</code> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> count </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li><li class="L2"><span class="pln">    angular</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">todos</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">todo</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      count </span><span class="pun">+=</span><span class="pln"> todo</span><span class="pun">.</span><span class="kwd">done</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li><li class="L4"><span class="pln">    </span><span class="pun">});</span></li><li class="L5"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> count</span><span class="pun">;</span></li><li class="L6"><span class="pln">  </span><span class="pun">};</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">archive </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> oldTodos </span><span class="pun">=</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">todos</span><span class="pun">;</span></li><li class="L0"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">todos </span><span class="pun">=</span><span class="pln"> </span><span class="pun"><code class="nocode" rel="popover" title="&lt;code&gt;[]&lt;/code&gt;" data-content="You can replace the model with new instance at any time, without doing any special model listeners re-registration.">[]</code>;</span></li><li class="L1"><span class="pln">    angular</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="pln">oldTodos</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">todo</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">todo</span><span class="pun">.</span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">todos</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">todo</span><span class="pun">);</span></li><li class="L3"><span class="pln">    </span><span class="pun">});</span></li><li class="L4"><span class="pln">  </span><span class="pun">};</span></li><li class="L5"><span class="pun">}</span></li></ol></pre></div><div class="tab-pane" id="todo-css"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="pln"><code class="nocode" rel="popover" title="&lt;code&gt;.done-true&lt;/code&gt;" data-content="Add strikethrough decoration when the task is done.">.done-true</code> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  text</span><span class="pun">-</span><span class="pln">decoration</span><span class="pun">:</span><span class="pln"> line</span><span class="pun">-</span><span class="pln">through</span><span class="pun">;</span></li><li class="L2"><span class="pln">  color</span><span class="pun">:</span><span class="pln"> grey</span><span class="pun">;</span></li><li class="L3"><span class="pun">}</span></li></ol></pre></div></div></div></div>
       <div class="span4">
-        <span hint></span>
-        <span class="pull-right" js-fiddle="todo.html todo.js todo.css"></span>
+        <span hint=""><em>Hint:</em> hover over <code class="nocode" rel="popover" data-content="Place your mouse over highlited areas in the code for explanations." data-original-title="Hover">me</code>.</span>
+        <span class="pull-right" js-fiddle="todo.html todo.js todo.css"><form class="jsfiddle" method="post" action="http://jsfiddle.net/api/post/library/pure/" target="_blank"><input type="hidden" name="title" value="AngularJS Example: "><input type="hidden" name="css" value="&lt;/style&gt; &lt;!-- Ugly Hack due to jsFiddle issue: http://goo.gl/BUfGZ --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://twitter.github.com/bootstrap/assets/css/bootstrap.css&quot;&gt;
+&lt;script src=&quot;http://code.angularjs.org/angular-1.0.0rc4.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+"><input type="hidden" name="html" value="&lt;div ng-app&gt;
+  &lt;h2&gt;Todo&lt;/h2&gt;
+  &lt;div ng-controller=&quot;TodoCtrl&quot;&gt;
+    &lt;span&gt;{{remaining()}} of {{todos.length}} remaining&lt;/span&gt;
+    [ &lt;a href=&quot;&quot; ng-click=&quot;archive()&quot;&gt;archive&lt;/a&gt; ]
+    &lt;ul class=&quot;unstyled&quot;&gt;
+      &lt;li ng-repeat=&quot;todo in todos&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; ng-model=&quot;todo.done&quot;&gt;
+        &lt;span class=&quot;done-{{todo.done}}&quot;&gt;{{todo.text}}&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;form ng-submit=&quot;addTodo()&quot;&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;todoText&quot;  size=&quot;30&quot;
+             placeholder=&quot;add new todo here&quot;&gt;
+      &lt;input class=&quot;btn-primary&quot; type=&quot;submit&quot; value=&quot;add&quot;&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"><input type="hidden" name="js" value="function TodoCtrl($scope) {
+  $scope.todos = [
+    {text:&#39;learn angular&#39;, done:true},
+    {text:&#39;build an angular app&#39;, done:false}];
+
+  $scope.addTodo = function() {
+    $scope.todos.push({text:$scope.todoText, done:false});
+    $scope.todoText = &#39;&#39;;
+  };
+
+  $scope.remaining = function() {
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      count += todo.done ? 1 : 0;
+    });
+    return count;
+  };
+
+  $scope.archive = function() {
+    var oldTodos = $scope.todos;
+    $scope.todos = [];
+    angular.forEach(oldTodos, function(todo) {
+      if (!todo.done) $scope.todos.push(todo);
+    });
+  };
+}
+
+"><button class="btn btn-primary"><i class="icon-white icon-pencil"></i> Edit Me</button></form></span>
         <br> <br> <br>
-        <div app-run="todo.html" class="well"></div>
+        <div app-run="todo.html" class="well ng-scope"><h2>Todo</h2>
+<div ng-controller="TodoCtrl" class="ng-scope">
+  <span class="ng-binding">1 of 2 remaining</span>
+  [ <a href="" ng-click="archive()">archive</a> ]
+  <ul class="unstyled">
+    <!-- ngRepeat: todo in todos --><li ng-repeat="todo in todos" class="ng-scope">
+      <input type="checkbox" ng-model="todo.done" class="ng-pristine ng-valid">
+      <span class="done-true">learn angular</span>
+    </li><li ng-repeat="todo in todos" class="ng-scope">
+      <input type="checkbox" ng-model="todo.done" class="ng-pristine ng-valid">
+      <span class="done-false">build an angular app</span>
+    </li>
+  </ul>
+  <form ng-submit="addTodo()" class="ng-pristine ng-valid">
+    <input type="text" ng-model="todoText" size="30" placeholder="add new todo here" class="ng-pristine ng-valid">
+    <input class="btn-primary" type="submit" value="add">
+  </form>
+</div>
+</div>
         <h3>Watch as we build this app</h3>
         <div class="video-img" data-toggle="modal" href="#videoModal">
-          <img class="video" src="img/video.png">
+          <img class="video" src="./index_files/video.png">
         </div>
       </div>
     </div>
 
     <div class="modal hide fade" style="display: none;" id="videoModal">
       <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
+        <a class="close" data-dismiss="modal" href="">×</a>
         <h3>AngularJS Todo Tutorial</h3>
       </div>
       <div class="modal-body">
       </div>
     </div>
 
-
-    <h1>Intermediate</h1>
     <div class="row">
-      <div class="span4">
+			<div class="span4">
         <h3>Deep Linking</h3>
         <p>
           A deep link reflects where the user is in the app, this is useful so users can bookmark
@@ -276,7 +389,7 @@
       <div class="span4">
         <h3>Form Validation</h3>
         <p>
-          Client-side form validation is an important part of great user experience. 
+          Client-side form validation is an important part of great user experience.
           AngularJS lets you declare the validation rules of the form without having to write
           JavaScript code. Write less code, go have beer sooner.
         </p>
@@ -291,21 +404,240 @@
         </p>
       </div>
     </div>
+
+		<h1>Advanced</h1>
     <div class=" row example">
-      <div class="span8 app-source" app-source="project.html project.js list.html detail.html parse.js" annotate="project.annotation" module="project"></div>
+      <div class="span8 app-source" app-source="project.html project.js list.html detail.html parse.js" annotate="project.annotation" module="project" style="clear: both; "><div class="tabbable"><ul class="nav nav-tabs"><li class=" active"><a href="http://angularjs-org.appspot.com/#project-html" data-toggle="tab">index.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#project-js" data-toggle="tab">project.js</a></li><li class=""><a href="http://angularjs-org.appspot.com/#list-html" data-toggle="tab">list.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#detail-html" data-toggle="tab">detail.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#parse-js" data-toggle="tab">parse.js</a></li></ul><div class="tab-content"><div class="tab-pane active" id="project-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-app&lt;/code&gt;" data-content="Tells AngularJS to be active in this portion of the page. In this case the entire document.">ng-app</code></span><span class="pun">=</span><span class="atv">"<code class="nocode" rel="popover" title="&lt;code&gt;project&lt;/code&gt;" data-content="The &lt;code&gt;ng-app&lt;/code&gt; needs to load the &lt;code&gt;project&lt;/code&gt; module. Modules are a way to configure AngularJS applications.">project</code>"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/angular-1.0.0rc4.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"<code class="nocode" rel="popover" title="&lt;code&gt;project.js&lt;/code&gt;" data-content="Your behavior lives in JavaScript controllers.">project.js</code>"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"<code class="nocode" rel="popover" title="&lt;code&gt;parse.js&lt;/code&gt;" data-content="An AngularJS module definition to connect to &lt;code&gt;http://parse.com&lt;/code&gt; for data storage.">parse.js</code>"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;h2&gt;</span><span class="pln">JavaScript Projects</span><span class="tag">&lt;/h2&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn"><code class="nocode" rel="popover" title="&lt;code&gt;ng-view&lt;/code&gt;" data-content="Location where the routes will load their templates into. See &lt;code&gt;$routeProvider&lt;/code&gt;.">ng-view</code></span><span class="tag">&gt;&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre></div><div class="tab-pane" id="project-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'<code class="nocode" rel="popover" title="&lt;code&gt;project&lt;/code&gt;" data-content="Declare a &lt;code&gt;project&lt;/code&gt; module which is loaded by the &lt;code&gt;ng-app&lt;/code&gt; directive. This module is used to define the routes.">project</code>'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'<code class="nocode" rel="popover" title="&lt;code&gt;parse&lt;/code&gt;" data-content="The modules can depend on each other. In this case the &lt;code&gt;project&lt;/code&gt; module depends on &lt;code&gt;parse&lt;/code&gt; module.">parse</code>'</span><span class="pun">]).</span></li><li class="L1"><span class="pln">  <code class="nocode" rel="popover" title="&lt;code&gt;config&lt;/code&gt;" data-content="AngularJS defines a configuration phase and run phase. The distinction exists">config</code></span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$routeProvider</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $routeProvider</span><span class="pun">.</span></li><li class="L3"><span class="pln">      </span><span class="kwd">when</span><span class="pun">(</span><span class="str">'/list'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">controller</span><span class="pun">:</span><span class="typ">ListCntl</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">template</span><span class="pun">:</span><span class="str">'list.html'</span><span class="pun">}).</span></li><li class="L4"><span class="pln">      </span><span class="kwd">when</span><span class="pun">(</span><span class="str">'/edit/:projectId'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">controller</span><span class="pun">:</span><span class="typ">EditCntl</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">template</span><span class="pun">:</span><span class="str">'detail.html'</span><span class="pun">}).</span></li><li class="L5"><span class="pln">      </span><span class="kwd">when</span><span class="pun">(</span><span class="str">'/new'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">controller</span><span class="pun">:</span><span class="typ">CreateCntl</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">template</span><span class="pun">:</span><span class="str">'detail.html'</span><span class="pun">}).</span></li><li class="L6"><span class="pln">      otherwise</span><span class="pun">({</span><span class="pln">redirectTo</span><span class="pun">:</span><span class="str">'/list'</span><span class="pun">});</span></li><li class="L7"><span class="pln">  </span><span class="pun">}).</span></li><li class="L8"><span class="pln">  factory</span><span class="pun">(</span><span class="str">'Project'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">parse</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> parse</span><span class="pun">.</span><span class="pln">forClassName</span><span class="pun">(</span><span class="str">'project'</span><span class="pun">);</span></li><li class="L0"><span class="pln">  </span><span class="pun">});</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="kwd">function</span><span class="pln"> </span><span class="typ">ListCntl</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Project</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">projects </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Project</span><span class="pun">.</span><span class="pln">query</span><span class="pun">();</span></li><li class="L5"><span class="pun">}</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="kwd">function</span><span class="pln"> </span><span class="typ">CreateCntl</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> $location</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Project</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">save </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">    </span><span class="typ">Project</span><span class="pun">.</span><span class="pln">create</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">project</span><span class="pun">).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">project</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">      $location</span><span class="pun">.</span><span class="pln">path</span><span class="pun">(</span><span class="str">'/edit/'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> project</span><span class="pun">.</span><span class="pln">objectId</span><span class="pun">);</span></li><li class="L2"><span class="pln">    </span><span class="pun">});</span></li><li class="L3"><span class="pln">  </span><span class="pun">}</span></li><li class="L4"><span class="pun">}</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="kwd">function</span><span class="pln"> </span><span class="typ">EditCntl</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> $location</span><span class="pun">,</span><span class="pln"> $routeParams</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Project</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">  </span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">self</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">  </span><span class="typ">Project</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">$routeParams</span><span class="pun">.</span><span class="pln">projectId</span><span class="pun">).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">project</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">    </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">project </span><span class="pun">=</span><span class="pln"> project</span><span class="pun">;</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">project </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">.</span><span class="pln">project</span><span class="pun">);</span></li><li class="L3"><span class="pln">  </span><span class="pun">});</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">isClean </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">equals</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">.</span><span class="pln">project</span><span class="pun">,</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">project</span><span class="pun">);</span></li><li class="L7"><span class="pln">  </span><span class="pun">}</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">destroy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">    </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">project</span><span class="pun">.</span><span class="pln">destroy</span><span class="pun">().</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">      $location</span><span class="pun">.</span><span class="pln">path</span><span class="pun">(</span><span class="str">'/list'</span><span class="pun">);</span></li><li class="L2"><span class="pln">    </span><span class="pun">});</span></li><li class="L3"><span class="pln">  </span><span class="pun">};</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">save </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">    </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">project</span><span class="pun">.</span><span class="pln">save</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">project</span><span class="pun">).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">      $location</span><span class="pun">.</span><span class="pln">path</span><span class="pun">(</span><span class="str">'/list'</span><span class="pun">);</span></li><li class="L8"><span class="pln">    </span><span class="pun">});</span></li><li class="L9"><span class="pln">  </span><span class="pun">};</span></li><li class="L0"><span class="pun">}</span></li></ol></pre></div><div class="tab-pane" id="list-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"predicate"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"search-query"</span></li><li class="L1"><span class="pln">       </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Search"</span><span class="tag">&gt;</span></li><li class="L2"><span class="tag">&lt;table&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;thead&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;tr&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;th&gt;</span><span class="pln">Project</span><span class="tag">&lt;/th&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;th&gt;</span><span class="pln">Description</span><span class="tag">&lt;/th&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;th&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#/new"</span><span class="tag">&gt;&lt;i</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"icon-plus-sign"</span><span class="tag">&gt;&lt;/i&gt;&lt;/a&gt;&lt;/th&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;/tr&gt;</span></li><li class="L9"><span class="pln">  </span><span class="tag">&lt;/thead&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;tbody&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;tr</span><span class="pln"> </span><span class="atn">ng-repeat</span><span class="pun">=</span><span class="atv">"project in projects | filter:predicate | orderBy:'name'"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;td&gt;</span><span class="pln">{{project.name}}</span><span class="tag">&lt;/td&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;td&gt;</span><span class="pln">{{project.description}}</span><span class="tag">&lt;/td&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;td&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#/edit/{{project.objectId}}"</span><span class="tag">&gt;&lt;i</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"icon-pencil"</span><span class="tag">&gt;&lt;/i&gt;&lt;/a&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/td&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/tr&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;/tbody&gt;</span></li><li class="L9"><span class="tag">&lt;/table&gt;</span></li></ol></pre></div><div class="tab-pane" id="detail-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"myForm"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="pln"> </span><span class="atn">ng-class</span><span class="pun">=</span><span class="atv">"{error: myForm.name.$invalid}"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label&gt;</span><span class="pln">Name</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"project.name"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"myForm.name.$error.required"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-inline"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        Required</span><span class="tag">&lt;/span&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="pln"> </span><span class="atn">ng-class</span><span class="pun">=</span><span class="atv">"{error: myForm.site.$invalid}"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;label&gt;</span><span class="pln">Website</span><span class="tag">&lt;/label&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"url"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"site"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"project.site"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"myForm.site.$error.required"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-inline"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">        Required</span><span class="tag">&lt;/span&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"myForm.site.$error.url"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-inline"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">        Not a URL</span><span class="tag">&lt;/span&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;label&gt;</span><span class="pln">Description</span><span class="tag">&lt;/label&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"description"</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"project.description"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;br&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#/list"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn"</span><span class="tag">&gt;</span><span class="pln">Cancel</span><span class="tag">&lt;/a&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"save()"</span><span class="pln"> </span><span class="atn">ng-disabled</span><span class="pun">=</span><span class="atv">"isClean() || myForm.$invalid"</span></li><li class="L3"><span class="pln">          </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn btn-primary"</span><span class="tag">&gt;</span><span class="pln">Save</span><span class="tag">&lt;/button&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"destroy()"</span></li><li class="L5"><span class="pln">          </span><span class="atn">ng-show</span><span class="pun">=</span><span class="atv">"project.objectId"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn btn-danger"</span><span class="tag">&gt;</span><span class="pln">Delete</span><span class="tag">&lt;/button&gt;</span></li><li class="L6"><span class="tag">&lt;/form&gt;</span></li></ol></pre></div><div class="tab-pane" id="parse-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'parse'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span></li><li class="L1"><span class="pln">    service</span><span class="pun">(</span><span class="str">'parse'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ParseFactory</span><span class="pun">);</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="kwd">function</span><span class="pln"> </span><span class="typ">ParseFactory</span><span class="pun">(</span><span class="pln">$http</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">  </span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">self</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">,</span></li><li class="L5"><span class="pln">      config </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">        headers</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">          </span><span class="str">'X-Parse-Application-Id'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'iNMdOD7ijDce9udhcDoinc6vNaqY2olmtI4PMjxF'</span><span class="pun">,</span></li><li class="L8"><span class="pln">          </span><span class="str">'X-Parse-REST-API-Key'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'xLtbY0V0Bhcy6XYLv6zNug0SxZqJWPnCRwm7kxPb'</span><span class="pun">,</span></li><li class="L9"><span class="pln">          </span><span class="str">'X-Requested-With'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span></li><li class="L0"><span class="pln">        </span><span class="pun">}</span></li><li class="L1"><span class="pln">      </span><span class="pun">};</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">  </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">forClassName </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">className</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> </span><span class="typ">Class</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">          angular</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">);</span></li><li class="L6"><span class="pln">        </span><span class="pun">},</span></li><li class="L7"><span class="pln">        url </span><span class="pun">=</span><span class="pln"> </span><span class="str">'https://api.parse.com/1/classes/'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> className</span><span class="pun">;</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">    </span><span class="typ">Class</span><span class="pun">.</span><span class="pln">create </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">      </span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">self</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">      </span><span class="kwd">return</span><span class="pln"> $http</span><span class="pun">.</span></li><li class="L4"><span class="pln">          post</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">,</span><span class="pln"> config</span><span class="pun">).</span></li><li class="L5"><span class="pln">          </span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Class</span><span class="pun">(),</span><span class="pln"> data</span><span class="pun">,</span><span class="pln"> response</span><span class="pun">.</span><span class="pln">data</span><span class="pun">);</span></li><li class="L7"><span class="pln">          </span><span class="pun">});</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">    </span><span class="typ">Class</span><span class="pun">.</span><span class="kwd">get</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">id</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">      </span><span class="kwd">return</span><span class="pln"> $http</span><span class="pun">.</span></li><li class="L2"><span class="pln">          </span><span class="kwd">get</span><span class="pun">(</span><span class="pln">url </span><span class="pun">+</span><span class="pln"> </span><span class="str">'/'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> id  </span><span class="pun">+</span><span class="pln"> </span><span class="str">'/'</span><span class="pun">,</span><span class="pln"> config</span><span class="pun">).</span></li><li class="L3"><span class="pln">          </span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Class</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">data</span><span class="pun">);</span></li><li class="L5"><span class="pln">          </span><span class="pun">});</span></li><li class="L6"><span class="pln">    </span><span class="pun">};</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">    </span><span class="typ">Class</span><span class="pun">.</span><span class="pln">query </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      </span><span class="kwd">return</span><span class="pln"> $http</span><span class="pun">.</span></li><li class="L0"><span class="pln">          </span><span class="kwd">get</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln"> config</span><span class="pun">).</span></li><li class="L1"><span class="pln">          </span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> objs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">            angular</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">data</span><span class="pun">.</span><span class="pln">results</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">              objs</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Class</span><span class="pun">(</span><span class="pln">obj</span><span class="pun">));</span></li><li class="L6"><span class="pln">            </span><span class="pun">});</span></li><li class="L7"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> objs</span><span class="pun">;</span></li><li class="L8"><span class="pln">          </span><span class="pun">});</span></li><li class="L9"><span class="pln">    </span><span class="pun">};</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">    </span><span class="typ">Class</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">save </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">changes</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">      </span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">self</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">,</span></li><li class="L3"><span class="pln">          data </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">({},</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">,</span><span class="pln"> changes</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">            objectId</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">,</span></li><li class="L5"><span class="pln">            createdAt</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">,</span></li><li class="L6"><span class="pln">            updatedAt</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">undefined</span><span class="pun">});</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">      </span><span class="kwd">return</span><span class="pln"> $http</span><span class="pun">.</span></li><li class="L9"><span class="pln">          put</span><span class="pun">(</span><span class="pln">url </span><span class="pun">+</span><span class="pln"> </span><span class="str">'/'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">objectId</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">,</span><span class="pln"> config</span><span class="pun">).</span></li><li class="L0"><span class="pln">          </span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">response</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">            angular</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">,</span><span class="pln"> changes</span><span class="pun">,</span><span class="pln"> response</span><span class="pun">.</span><span class="pln">data</span><span class="pun">);</span></li><li class="L2"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">;</span></li><li class="L3"><span class="pln">          </span><span class="pun">});</span></li><li class="L4"><span class="pln">    </span><span class="pun">};</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">    </span><span class="typ">Class</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">destroy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">      </span><span class="kwd">return</span><span class="pln"> $http</span><span class="pun">[</span><span class="str">'delete'</span><span class="pun">](</span><span class="pln">url </span><span class="pun">+</span><span class="pln"> </span><span class="str">'/'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">objectId</span><span class="pun">,</span><span class="pln"> config</span><span class="pun">)</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="typ">Class</span><span class="pun">;</span></li><li class="L0"><span class="pln">  </span><span class="pun">}</span></li><li class="L1"><span class="pun">}</span></li></ol></pre></div></div></div></div>
       <div class="span4">
-        <span hint></span>
-        <span class="pull-right" js-fiddle="project.html list.html detail.html project.js parse.js" module="project"></span>
+        <span hint=""><em>Hint:</em> hover over <code class="nocode" rel="popover" data-content="Place your mouse over highlited areas in the code for explanations." data-original-title="Hover">me</code>.</span>
+        <span class="pull-right" js-fiddle="project.html list.html detail.html project.js parse.js" module="project"><form class="jsfiddle" method="post" action="http://jsfiddle.net/api/post/library/pure/" target="_blank"><input type="hidden" name="title" value="AngularJS Example: "><input type="hidden" name="css" value="&lt;/style&gt; &lt;!-- Ugly Hack due to jsFiddle issue: http://goo.gl/BUfGZ --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://twitter.github.com/bootstrap/assets/css/bootstrap.css&quot;&gt;
+&lt;script src=&quot;http://code.angularjs.org/angular-1.0.0rc4.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+"><input type="hidden" name="html" value="&lt;div ng-app=&quot;project&quot;&gt;
+  &lt;h2&gt;JavaScript Projects&lt;/h2&gt;
+  &lt;div ng-view&gt;&lt;/div&gt;
+
+
+
+  &lt;!-- CACHE FILE: list.html --&gt;
+  &lt;script type=&quot;text/ng-template&quot; id=&quot;list.html&quot;&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;predicate&quot; class=&quot;search-query&quot;
+           placeholder=&quot;Search&quot;&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Project&lt;/th&gt;
+        &lt;th&gt;Description&lt;/th&gt;
+        &lt;th&gt;&lt;a href=&quot;#/new&quot;&gt;&lt;i class=&quot;icon-plus-sign&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr ng-repeat=&quot;project in projects | filter:predicate | orderBy:&#39;name&#39;&quot;&gt;
+        &lt;td&gt;{{project.name}}&lt;/td&gt;
+        &lt;td&gt;{{project.description}}&lt;/td&gt;
+        &lt;td&gt;
+          &lt;a href=&quot;#/edit/{{project.objectId}}&quot;&gt;&lt;i class=&quot;icon-pencil&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/script&gt;
+
+
+
+  &lt;!-- CACHE FILE: detail.html --&gt;
+  &lt;script type=&quot;text/ng-template&quot; id=&quot;detail.html&quot;&gt;
+    &lt;form name=&quot;myForm&quot;&gt;
+      &lt;div class=&quot;control-group&quot; ng-class=&quot;{error: myForm.name.$invalid}&quot;&gt;
+        &lt;label&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; ng-model=&quot;project.name&quot; required&gt;
+        &lt;span ng-show=&quot;myForm.name.$error.required&quot; class=&quot;help-inline&quot;&gt;
+            Required&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;control-group&quot; ng-class=&quot;{error: myForm.site.$invalid}&quot;&gt;
+        &lt;label&gt;Website&lt;/label&gt;
+        &lt;input type=&quot;url&quot; name=&quot;site&quot; ng-model=&quot;project.site&quot; required&gt;
+        &lt;span ng-show=&quot;myForm.site.$error.required&quot; class=&quot;help-inline&quot;&gt;
+            Required&lt;/span&gt;
+        &lt;span ng-show=&quot;myForm.site.$error.url&quot; class=&quot;help-inline&quot;&gt;
+            Not a URL&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;label&gt;Description&lt;/label&gt;
+      &lt;textarea name=&quot;description&quot; ng-model=&quot;project.description&quot;&gt;&lt;/textarea&gt;
+
+      &lt;br&gt;
+      &lt;a href=&quot;#/list&quot; class=&quot;btn&quot;&gt;Cancel&lt;/a&gt;
+      &lt;button ng-click=&quot;save()&quot; ng-disabled=&quot;isClean() || myForm.$invalid&quot;
+              class=&quot;btn btn-primary&quot;&gt;Save&lt;/button&gt;
+      &lt;button ng-click=&quot;destroy()&quot;
+              ng-show=&quot;project.objectId&quot; class=&quot;btn btn-danger&quot;&gt;Delete&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/script&gt;
+&lt;/div&gt;
+"><input type="hidden" name="js" value="angular.module(&#39;project&#39;, [&#39;parse&#39;]).
+  config(function($routeProvider) {
+    $routeProvider.
+      when(&#39;/list&#39;, {controller:ListCntl, template:&#39;list.html&#39;}).
+      when(&#39;/edit/:projectId&#39;, {controller:EditCntl, template:&#39;detail.html&#39;}).
+      when(&#39;/new&#39;, {controller:CreateCntl, template:&#39;detail.html&#39;}).
+      otherwise({redirectTo:&#39;/list&#39;});
+  }).
+  factory(&#39;Project&#39;, function(parse) {
+    return parse.forClassName(&#39;project&#39;);
+  });
+
+
+function ListCntl($scope, Project) {
+  $scope.projects = Project.query();
+}
+
+
+function CreateCntl($scope, $location, Project) {
+  $scope.save = function() {
+    Project.create($scope.project).then(function(project) {
+      $location.path(&#39;/edit/&#39; + project.objectId);
+    });
+  }
+}
+
+
+function EditCntl($scope, $location, $routeParams, Project) {
+  var self = this;
+
+  Project.get($routeParams.projectId).then(function(project) {
+    self.project = project;
+    $scope.project = angular.copy(self.project);
+  });
+
+  $scope.isClean = function() {
+    return angular.equals(self.project, $scope.project);
+  }
+
+  $scope.destroy = function() {
+    self.project.destroy().then(function() {
+      $location.path(&#39;/list&#39;);
+    });
+  };
+
+  $scope.save = function() {
+    self.project.save($scope.project).then(function() {
+      $location.path(&#39;/list&#39;);
+    });
+  };
+}
+
+angular.module(&#39;parse&#39;, []).
+    service(&#39;parse&#39;, ParseFactory);
+
+function ParseFactory($http) {
+  var self = this,
+      config = {
+        headers: {
+          &#39;X-Parse-Application-Id&#39;: &#39;iNMdOD7ijDce9udhcDoinc6vNaqY2olmtI4PMjxF&#39;,
+          &#39;X-Parse-REST-API-Key&#39;: &#39;xLtbY0V0Bhcy6XYLv6zNug0SxZqJWPnCRwm7kxPb&#39;,
+          &#39;X-Requested-With&#39;: undefined
+        }
+      };
+
+  self.forClassName = function(className) {
+    var Class = function(data) {
+          angular.extend(this, data);
+        },
+        url = &#39;https://api.parse.com/1/classes/&#39; + className;
+
+
+    Class.create = function(data) {
+      var self = this;
+
+      return $http.
+          post(url, data, config).
+          then(function(response) {
+            return angular.extend(new Class(), data, response.data);
+          });
+    };
+
+    Class.get = function(id) {
+      return $http.
+          get(url + &#39;/&#39; + id  + &#39;/&#39;, config).
+          then(function(response) {
+            return new Class(response.data);
+          });
+    };
+
+    Class.query = function() {
+      return $http.
+          get(url, config).
+          then(function(response) {
+            var objs = [];
+
+            angular.forEach(response.data.results, function(obj) {
+              objs.push(new Class(obj));
+            });
+            return objs;
+          });
+    };
+
+    Class.prototype.save = function(changes) {
+      var self = this,
+          data = angular.extend({}, self, changes, {
+            objectId: undefined,
+            createdAt: undefined,
+            updatedAt: undefined});
+
+      return $http.
+          put(url + &#39;/&#39; + self.objectId, data, config).
+          then(function(response) {
+            angular.extend(self, changes, response.data);
+            return self;
+          });
+    };
+
+    Class.prototype.destroy = function() {
+      return $http[&#39;delete&#39;](url + &#39;/&#39; + this.objectId, config)
+    };
+    return Class;
+  }
+}
+
+"><button class="btn btn-primary"><i class="icon-white icon-pencil"></i> Edit Me</button></form></span>
         <br> <br> <br>
-        <div app-run="project.html" module="project" class="well"></div>
+        <div app-run="project.html" module="project" class="well ng-scope"><h2>JavaScript Projects</h2>
+<div ng-view=""><span class="ng-scope">
+      </span><input type="text" ng-model="predicate" class="search-query ng-scope ng-pristine ng-valid" placeholder="Search"><span class="ng-scope">
+      </span><table class="ng-scope">
+        <thead>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th><a href="http://angularjs-org.appspot.com/#/new"><i class="icon-plus-sign"></i></a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- ngRepeat: project in projects | filter:predicate | orderBy:'name' --><tr ng-repeat="project in projects | filter:predicate | orderBy:&#39;name&#39;" class="ng-scope">
+          <td class="ng-binding">Nameasd</td>
+          <td class="ng-binding">This is the deasdscription1</td>
+          <td>
+            <a href="http://angularjs-org.appspot.com/#/edit/LcAkK3Ht4W"><i class="icon-pencil"></i></a>
+          </td>
+        </tr><tr ng-repeat="project in projects | filter:predicate | orderBy:&#39;name&#39;" class="ng-scope">
+          <td class="ng-binding">yahoo</td>
+          <td class="ng-binding"></td>
+          <td>
+            <a href="http://angularjs-org.appspot.com/#/edit/YQ1kC3rtkA"><i class="icon-pencil"></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table><span class="ng-scope">
+    </span></div>
+</div>
       </div>
     </div>
 
-
-
-    <h1>Advanced</h1>
     <div class="row">
-      <div class="span4">
+			<div class="span4">
         <h3>Directives</h3>
         <p>
           Directives is a unique and powerful feature available only in Angular. Directives let
@@ -329,23 +661,142 @@
         </p>
       </div>
     </div>
+
+		<h1>Expert</h1>
     <div class=" row example">
-      <div class="span8 app-source" app-source="tabs.html tabs.js beers.js" annotate="tabs.annotation" module="tabs"></div>
+      <div class="span8 app-source" app-source="tabs.html tabs.js beers.js" annotate="tabs.annotation" module="tabs" style="clear: both; "><div class="tabbable"><ul class="nav nav-tabs"><li class=" active"><a href="http://angularjs-org.appspot.com/#tabs-html" data-toggle="tab">index.html</a></li><li class=""><a href="http://angularjs-org.appspot.com/#tabs-js" data-toggle="tab">tabs.js</a></li><li class=""><a href="http://angularjs-org.appspot.com/#beers-js" data-toggle="tab">beers.js</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tabs-html"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"tabs"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/angular-1.0.0rc4.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"tabs.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"beers.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;tabs&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;pane</span><span class="pln"> </span><span class="atn">title</span><span class="pun">=</span><span class="atv">"Formating"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">        Date: {{ '2012-04-01' | date:'fullDate' }} </span><span class="tag">&lt;br&gt;</span></li><li class="L1"><span class="pln">        Currency: {{ 123456 | currency }} </span><span class="tag">&lt;br&gt;</span></li><li class="L2"><span class="pln">        Number: {{ 98765.4321 | number }} </span><span class="tag">&lt;br&gt;</span></li><li class="L3"><span class="pln">      </span><span class="tag">&lt;/pane&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;pane</span><span class="pln"> </span><span class="atn">title</span><span class="pun">=</span><span class="atv">"Pluralization"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"BeerCounter"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">          </span><span class="tag">&lt;i</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"icon-plus"</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"beers = beers + 1"</span><span class="tag">&gt;&lt;/i&gt;</span></li><li class="L7"><span class="pln">          </span><span class="tag">&lt;i</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"icon-minus"</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"beers = beers - 1"</span><span class="tag">&gt;&lt;/i&gt;</span></li><li class="L8"><span class="pln">          </span><span class="tag">&lt;ng-pluralize</span><span class="pln"> </span><span class="atn">count</span><span class="pun">=</span><span class="atv">"beers"</span><span class="pln"> </span><span class="atn">when</span><span class="pun">=</span><span class="atv">"beerCounts"</span><span class="tag">&gt;&lt;/ng-pluralize&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;/pane&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/tabs&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L3"><span class="tag">&lt;/html&gt;</span></li></ol></pre></div><div class="tab-pane" id="tabs-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'tabs'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span></li><li class="L1"><span class="pln">  directive</span><span class="pun">(</span><span class="str">'tabs'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L4"><span class="pln">      transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L5"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span></li><li class="L6"><span class="pln">      </span><span class="kwd">template</span><span class="pun">:</span></li><li class="L7"><span class="pln">        </span><span class="str">'&lt;div class="tabbable"&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L8"><span class="pln">          </span><span class="str">'&lt;ul class="nav nav-tabs"&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L9"><span class="pln">            </span><span class="str">'&lt;li ng-repeat="tab in tabs" ng-class="{active: tab.selected}"&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L0"><span class="pln">              </span><span class="str">'&lt;a href="" ng-click="select(tab)"&gt;{{tab.title}}&lt;/a&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L1"><span class="pln">            </span><span class="str">'&lt;/li&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L2"><span class="pln">          </span><span class="str">'&lt;/ul&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L3"><span class="pln">          </span><span class="str">'&lt;div class="tab-content" ng-transclude&gt;&lt;/div&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L4"><span class="pln">        </span><span class="str">'&lt;/div&gt;'</span><span class="pun">,</span></li><li class="L5"><span class="pln">      replace</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L6"><span class="pln">      controller</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> $element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">        </span><span class="kwd">var</span><span class="pln"> tabs </span><span class="pun">=</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">tabs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">addPane </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">pane</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">          </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tabs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> $scope</span><span class="pun">.</span><span class="kwd">select</span><span class="pun">(</span><span class="pln">pane</span><span class="pun">);</span></li><li class="L1"><span class="pln">          tabs</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">pane</span><span class="pun">);</span></li><li class="L2"><span class="pln">        </span><span class="pun">}</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">        $scope</span><span class="pun">.</span><span class="kwd">select</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">pane</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">          angular</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="pln">tabs</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">pane</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">            pane</span><span class="pun">.</span><span class="pln">selected </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li><li class="L7"><span class="pln">          </span><span class="pun">});</span></li><li class="L8"><span class="pln">          pane</span><span class="pun">.</span><span class="pln">selected </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li><li class="L9"><span class="pln">        </span><span class="pun">}</span></li><li class="L0"><span class="pln">      </span><span class="pun">}</span></li><li class="L1"><span class="pln">    </span><span class="pun">};</span></li><li class="L2"><span class="pln">  </span><span class="pun">}).</span></li><li class="L3"><span class="pln">  directive</span><span class="pun">(</span><span class="str">'pane'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L6"><span class="pln">      transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L7"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">        title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'bind'</span></li><li class="L9"><span class="pln">      </span><span class="pun">},</span></li><li class="L0"><span class="pln">      </span><span class="kwd">template</span><span class="pun">:</span></li><li class="L1"><span class="pln">        </span><span class="str">'&lt;div class="tab-pane" ng-class="{active: selected}" ng-transclude&gt;'</span><span class="pln"> </span><span class="pun">+</span></li><li class="L2"><span class="pln">        </span><span class="str">'&lt;/div&gt;'</span><span class="pun">,</span></li><li class="L3"><span class="pln">      replace</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L4"><span class="pln">      </span><span class="kwd">require</span><span class="pun">:</span><span class="pln"> </span><span class="str">'^tabs'</span><span class="pun">,</span></li><li class="L5"><span class="pln">      link</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">,</span><span class="pln"> attrs</span><span class="pun">,</span><span class="pln"> tabsCntl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">        tabsCntl</span><span class="pun">.</span><span class="pln">addPane</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">);</span></li><li class="L7"><span class="pln">      </span><span class="pun">}</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pln">  </span><span class="pun">})</span></li></ol></pre></div><div class="tab-pane" id="beers-js"><pre class="prettyprint linenums nocode"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> </span><span class="typ">BeerCounter</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> $locale</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">beers </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li><li class="L2"><span class="pln">  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$locale</span><span class="pun">.</span><span class="pln">id </span><span class="pun">==</span><span class="pln"> </span><span class="str">'en-us'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">beerCounts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">      </span><span class="lit">0</span><span class="pun">:</span><span class="pln"> </span><span class="str">'no beers'</span><span class="pun">,</span></li><li class="L5"><span class="pln">      one</span><span class="pun">:</span><span class="pln"> </span><span class="str">'{} beer'</span><span class="pun">,</span></li><li class="L6"><span class="pln">      other</span><span class="pun">:</span><span class="pln"> </span><span class="str">'{} beers'</span></li><li class="L7"><span class="pln">    </span><span class="pun">};</span></li><li class="L8"><span class="pln">  </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">beerCounts </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">      </span><span class="lit">0</span><span class="pun">:</span><span class="pln"> </span><span class="str">'žjadne pivo'</span><span class="pun">,</span></li><li class="L1"><span class="pln">      one</span><span class="pun">:</span><span class="pln"> </span><span class="str">'{} pivo'</span><span class="pun">,</span></li><li class="L2"><span class="pln">      few</span><span class="pun">:</span><span class="pln"> </span><span class="str">'{} pivá'</span><span class="pun">,</span></li><li class="L3"><span class="pln">      other</span><span class="pun">:</span><span class="pln"> </span><span class="str">'{} pív'</span></li><li class="L4"><span class="pln">    </span><span class="pun">};</span></li><li class="L5"><span class="pln">  </span><span class="pun">}</span></li><li class="L6"><span class="pun">}</span></li></ol></pre></div></div></div></div>
       <div class="span4">
-        <span hint></span>
-        <span class="pull-right" js-fiddle="tabs.html zippy.js zippy.css tabs.js beers.js advanced.js" module="tabs"></span>
+        <span hint=""><em>Hint:</em> hover over <code class="nocode" rel="popover" data-content="Place your mouse over highlited areas in the code for explanations." data-original-title="Hover">me</code>.</span>
+        <span class="pull-right" js-fiddle="tabs.html zippy.js zippy.css tabs.js beers.js advanced.js" module="tabs"><form class="jsfiddle" method="post" action="http://jsfiddle.net/api/post/library/pure/" target="_blank"><input type="hidden" name="title" value="AngularJS Example: "><input type="hidden" name="css" value="&lt;/style&gt; &lt;!-- Ugly Hack due to jsFiddle issue: http://goo.gl/BUfGZ --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://twitter.github.com/bootstrap/assets/css/bootstrap.css&quot;&gt;
+&lt;script src=&quot;http://code.angularjs.org/angular-1.0.0rc4.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+
+"><input type="hidden" name="html" value="&lt;div ng-app=&quot;tabs&quot;&gt;
+  &lt;tabs&gt;
+    &lt;pane title=&quot;Formating&quot;&gt;
+      Date: {{ &#39;2012-04-01&#39; | date:&#39;fullDate&#39; }} &lt;br&gt;
+      Currency: {{ 123456 | currency }} &lt;br&gt;
+      Number: {{ 98765.4321 | number }} &lt;br&gt;
+    &lt;/pane&gt;
+    &lt;pane title=&quot;Pluralization&quot;&gt;
+      &lt;div ng-controller=&quot;BeerCounter&quot;&gt;
+        &lt;i class=&quot;icon-plus&quot; ng-click=&quot;beers = beers + 1&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;icon-minus&quot; ng-click=&quot;beers = beers - 1&quot;&gt;&lt;/i&gt;
+        &lt;ng-pluralize count=&quot;beers&quot; when=&quot;beerCounts&quot;&gt;&lt;/ng-pluralize&gt;
+      &lt;/div&gt;
+    &lt;/pane&gt;
+  &lt;/tabs&gt;
+&lt;/div&gt;
+"><input type="hidden" name="js" value="
+angular.module(&#39;tabs&#39;, []).
+  directive(&#39;tabs&#39;, function() {
+    return {
+      restrict: &#39;E&#39;,
+      transclude: true,
+      scope: {},
+      template:
+        &#39;&lt;div class=&quot;tabbable&quot;&gt;&#39; +
+          &#39;&lt;ul class=&quot;nav nav-tabs&quot;&gt;&#39; +
+            &#39;&lt;li ng-repeat=&quot;tab in tabs&quot; ng-class=&quot;{active: tab.selected}&quot;&gt;&#39; +
+              &#39;&lt;a href=&quot;&quot; ng-click=&quot;select(tab)&quot;&gt;{{tab.title}}&lt;/a&gt;&#39; +
+            &#39;&lt;/li&gt;&#39; +
+          &#39;&lt;/ul&gt;&#39; +
+          &#39;&lt;div class=&quot;tab-content&quot; ng-transclude&gt;&lt;/div&gt;&#39; +
+        &#39;&lt;/div&gt;&#39;,
+      replace: true,
+      controller: function($scope, $element) {
+        var tabs = $scope.tabs = [];
+
+        this.addPane = function(pane) {
+          if (tabs.length == 0) $scope.select(pane);
+          tabs.push(pane);
+        }
+
+        $scope.select = function(pane) {
+          angular.forEach(tabs, function(pane) {
+            pane.selected = false;
+          });
+          pane.selected = true;
+        }
+      }
+    };
+  }).
+  directive(&#39;pane&#39;, function() {
+    return {
+      restrict: &#39;E&#39;,
+      transclude: true,
+      scope: {
+        title: &#39;bind&#39;
+      },
+      template:
+        &#39;&lt;div class=&quot;tab-pane&quot; ng-class=&quot;{active: selected}&quot; ng-transclude&gt;&#39; +
+        &#39;&lt;/div&gt;&#39;,
+      replace: true,
+      require: &#39;^tabs&#39;,
+      link: function(scope, element, attrs, tabsCntl) {
+        tabsCntl.addPane(scope);
+      }
+    };
+  })
+
+function BeerCounter($scope, $locale) {
+  $scope.beers = 0;
+  if ($locale.id == &#39;en-us&#39;) {
+    $scope.beerCounts = {
+      0: &#39;no beers&#39;,
+      one: &#39;{} beer&#39;,
+      other: &#39;{} beers&#39;
+    };
+  } else {
+    $scope.beerCounts = {
+      0: &#39;žjadne pivo&#39;,
+      one: &#39;{} pivo&#39;,
+      few: &#39;{} pivá&#39;,
+      other: &#39;{} pív&#39;
+    };
+  }
+}
+
+
+"><button class="btn btn-primary"><i class="icon-white icon-pencil"></i> Edit Me</button></form></span>
         <br> <br> <br>
         <h4>Locale: US</h4>
-        <div app-run="tabs.html" module="tabs" class="well"></div>
+        <div app-run="tabs.html" module="tabs" class="well ng-scope"><div class="tabbable"><ul class="nav nav-tabs"><!-- ngRepeat: tab in tabs --><li ng-repeat="tab in tabs" ng-class="{active: tab.selected}" class="ng-scope active"><a href="" ng-click="select(tab)" class="ng-binding">Formating</a></li><li ng-repeat="tab in tabs" ng-class="{active: tab.selected}" class="ng-scope"><a href="" ng-click="select(tab)" class="ng-binding">Pluralization</a></li></ul><div class="tab-content" ng-transclude=""><span class="ng-scope">
+  </span><div class="tab-pane ng-scope active" ng-class="{active: selected}" ng-transclude="" title="Formating"><span class="ng-scope ng-binding">
+    Date: sobota, 31. marca 2012 </span><br class="ng-scope"><span class="ng-scope ng-binding">
+    Currency: 123&nbsp;456,00&nbsp;Sk </span><br class="ng-scope"><span class="ng-scope ng-binding">
+    Number: 98&nbsp;765,432 </span><br class="ng-scope"><span class="ng-scope">
+  </span></div><span class="ng-scope">
+  </span><div class="tab-pane ng-scope" ng-class="{active: selected}" ng-transclude="" title="Pluralization"><span class="ng-scope">
+    </span><div ng-controller="BeerCounter" class="ng-scope">
+      <i class="icon-plus" ng-click="beers = beers + 1"></i>
+      <i class="icon-minus" ng-click="beers = beers - 1"></i>
+      <ng-pluralize count="beers" when="beerCounts">žjadne pivo</ng-pluralize>
+    </div><span class="ng-scope">
+  </span></div><span class="ng-scope">
+</span></div></div>
+</div>
         <br> <br> <br>
         <h4>Locale: SK</h4>
-        <div app-run="tabs.html" module="tabs-sk" class="well"></div>
+        <div app-run="tabs.html" module="tabs-sk" class="well ng-scope"><div class="tabbable"><ul class="nav nav-tabs"><!-- ngRepeat: tab in tabs --><li ng-repeat="tab in tabs" ng-class="{active: tab.selected}" class="ng-scope active"><a href="" ng-click="select(tab)" class="ng-binding">Formating</a></li><li ng-repeat="tab in tabs" ng-class="{active: tab.selected}" class="ng-scope"><a href="" ng-click="select(tab)" class="ng-binding">Pluralization</a></li></ul><div class="tab-content" ng-transclude=""><span class="ng-scope">
+  </span><div class="tab-pane ng-scope active" ng-class="{active: selected}" ng-transclude="" title="Formating"><span class="ng-scope ng-binding">
+    Date: sobota, 31. marca 2012 </span><br class="ng-scope"><span class="ng-scope ng-binding">
+    Currency: 123&nbsp;456,00&nbsp;Sk </span><br class="ng-scope"><span class="ng-scope ng-binding">
+    Number: 98&nbsp;765,432 </span><br class="ng-scope"><span class="ng-scope">
+  </span></div><span class="ng-scope">
+  </span><div class="tab-pane ng-scope" ng-class="{active: selected}" ng-transclude="" title="Pluralization"><span class="ng-scope">
+    </span><div ng-controller="BeerCounter" class="ng-scope">
+      <i class="icon-plus" ng-click="beers = beers + 1"></i>
+      <i class="icon-minus" ng-click="beers = beers - 1"></i>
+      <ng-pluralize count="beers" when="beerCounts">žjadne pivo</ng-pluralize>
+    </div><span class="ng-scope">
+  </span></div><span class="ng-scope">
+</span></div></div>
+</div>
       </div>
     </div>
 
-
-
-    <h1>Expert</h1>
     <div class="row">
       <div class="span4">
         <h3>Embeddable</h3>
@@ -380,23 +831,24 @@
 
 
     <hr>
+	</div>
 
-    <footer class="footer">
-      <p class="pull-right"><a href="#">Back to top</a></p>
+  <footer class="footer">
+	  <div class="container">
+      <p class="pull-right"><a href="http://angularjs-org.appspot.com/#">Back to top</a></p>
       <p>Super-powered by Google  ©2010-2012</p>
-      <p>Code licensed under the 
+      <p>Code licensed under the
          <a href="https://github.com/angular/angular.js/blob/master/LICENSE" target="_blank">The
-         MIT License</a>. Documentation licensed under <a
-         href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+         MIT License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
       </p>
-    </footer>
-  </div>
+    </div>
 
-  <!-- JavaScript at the bottom for fast page loading -->
-  <!-- end scripts -->
+  </footer>
+
+
 
   <div class="hello-code">
-    <!-- ============== Hello ============== -->
+
 
     <script id="hello.js">
       function HelloCtrl($scope) {
@@ -429,7 +881,7 @@
     </script>
   </div>
   <div class="todo-code">
-    <!-- ============== TODO ============== -->
+
     <style id="todo.css">
       .done-true {
         text-decoration: line-through;
@@ -514,7 +966,7 @@
     </script>
   </div>
   <div class="project-code">
-    <!-- ============== Projects ============== -->
+
     <style id="project.css">
       table { text-align: left; }
       table td, table th {
@@ -523,7 +975,7 @@
       }
     </style>
     <script id="parse.js">
-      // This is a module for http://parse.com data persistence
+
       angular.module('parse', []).
           service('parse', ParseFactory);
 
@@ -723,7 +1175,7 @@
     </script>
   </div>
   <div class="tabs-code">
-    <!-- ============== Tabs ============== -->
+
     <script id="tabs.js">
       angular.module('tabs', []).
         directive('tabs', function() {
@@ -819,5 +1271,6 @@
       }
     </script>
   </div>
-</body>
-</html>
+
+
+</body></html>
